@@ -1,5 +1,5 @@
 {
-	"name": "laza-niaina/bot-messenger-node",
+	"name": "bot-messenger-node",
 	"description": "A Node.js library streamlining the integration and smooth utilization of the Messenger API for the development of interactive chatbots.",
 	"version": "1.0.0",
 	"scripts": {
