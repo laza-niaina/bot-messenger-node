@@ -5,7 +5,7 @@ class Message {
   constructor(data) {
     if (typeof data === 'string') {
       this.type = Message.TYPE_TEXT;
-    } else if (data instanceof File) {
+    } else if (data instanceof Attachment) {
       this.type = Message.TYPE_ATTACHMENT;
     }
     this.data = data;
@@ -13,7 +13,9 @@ class Message {
   }
 
   addQuickReply(quickReply) {
-    this.quickReplies = [...(this.quickReplies || []), quickReply];
+    this.quickReplies = this.quickReplies === null
+      ? [quickReply]
+      : [...this.quickReplies, quickReply];
     return this;
   }
 
@@ -46,5 +48,9 @@ class Message {
   setQuickReplies(quickReplies) {
     this.quickReplies = quickReplies;
     return this;
+  }
+
+  getData() {
+    return this.data;
   }
 }
