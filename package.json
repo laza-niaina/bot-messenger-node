@@ -1,4 +1,4 @@
-
+{
 	"name": "bot-messenger-node",
 	"description": "A Node.js library streamlining the integration and smooth utilization of the Messenger API for the development of interactive chatbots.",
 	"version": "1.0.0",
@@ -17,11 +17,8 @@
 	],
 	"author": "Laza Niaina <lazaniaina13@gmail.com>",
 	"license": "MIT",
-	"dependencies": {
-		
-	},
-	"devDependencies": {
-	},
+	"dependencies": {},
+	"devDependencies": {},
 	"engines": {
 		"node": ">=12.0.0"
 	},
