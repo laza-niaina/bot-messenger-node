@@ -1,18 +1,36 @@
-{
-  "name": "bot-messenger-node",
-  "version": "1.0.0",
-  "description": "",
-  "main": "index.js",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
-  "keywords": [
-    "madagascar",
-    "bot-messenger",
-    "bot-messenger-node",
-    "nodejs",
-	"bot"
-  ],
-  "author": "Laza",
-  "license": "MIT"
+
+	"name": "bot-messenger-node",
+	"description": "A Node.js library streamlining the integration and smooth utilization of the Messenger API for the development of interactive chatbots.",
+	"version": "1.0.0",
+	"scripts": {
+		"test": "echo \"Error: no test specified\" && exit 1"
+	},
+	"keywords": [
+		"facebook",
+		"messenger",
+		"bot messenger",
+		"facebook messenger",
+		"bot",
+		"madagascar",
+		"conversation",
+		"bot conversation"
+	],
+	"author": "Laza Niaina <lazaniaina13@gmail.com>",
+	"license": "MIT",
+	"dependencies": {
+		
+	},
+	"devDependencies": {
+	},
+	"engines": {
+		"node": ">=12.0.0"
+	},
+	"repository": {
+		"type": "git",
+		"url": "https://github.com/laza-niaina/bot-messenger-node.git"
+	},
+	"bugs": {
+		"url": "https://github.com/laza-niaina/bot-messenger-node/issues"
+	},
+	"homepage": "https://github.com/laza-niaina/bot-messenger-node"
 }
