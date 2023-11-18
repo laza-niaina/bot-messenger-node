@@ -6,7 +6,7 @@ A Nodejs library streamlining the integration and smooth utilization of the Mess
 
 ## Installation
 
-It is better to use composer :
+It is better to use npm :
 
 ```bash
 npm install bot-messenger-bot
