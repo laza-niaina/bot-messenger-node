@@ -1,6 +1,8 @@
-const CallbackEvent = require('./CallbackEvent'); // Assurez-vous d'ajuster le chemin selon votre structure de dossier
+const CallbackEvent = require('./CallbackEvent');
+const Message = require('./Message'); 
 
 class MessageEvent extends CallbackEvent {
+
   static NAME = "message_event";
 
   constructor(sender, recipient, message) {
@@ -8,10 +10,6 @@ class MessageEvent extends CallbackEvent {
     this.message = message;
   }
 
-  /**
-   * Get the value of message
-   * @return {Message}
-   */
   getMessage() {
     return this.message;
   }
