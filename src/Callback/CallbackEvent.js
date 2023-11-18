@@ -1,24 +1,17 @@
-const { Event } = require('events'); // Assurez-vous d'ajuster le chemin selon votre structure de dossier
+const { EventEmitter } = require('events');
 
-class CallbackEvent extends Event {
+class CallbackEvent extends EventEmitter {
+
   constructor(sender, recipient) {
     super();
     this.sender = sender;
     this.recipient = recipient;
   }
 
-  /**
-   * Get the value of sender
-   * @return {string}
-   */
   getSender() {
     return this.sender;
   }
 
-  /**
-   * Get the value of recipient
-   * @return {string}
-   */
   getRecipient() {
     return this.recipient;
   }
