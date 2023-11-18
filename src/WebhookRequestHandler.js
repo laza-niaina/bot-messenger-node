@@ -1,29 +1,13 @@
-const express = require('express');
-const { ServerRequest } = require('http');
 const { EventDispatcher } = require('node-event-dispatcher');
-const CallbackEventFactory = require('./Helpers/CallbackEventFactory'); // Assurez-vous d'ajuster le chemin selon votre structure de dossier
+
 
 class WebhookRequestHandler {
-  /**
-   * @var EventDispatcher
-   */
-  dispatcher;
-
-  /**
-   * @var ServerRequest
-   */
-  request;
 
   constructor() {
-    this.request = new ServerRequest(process.env); // Utilisez les variables d'environnement de Node.js
+    this.request = ServerRequest.fromGlobals(); // Assuming ServerRequest is properly defined
     this.dispatcher = new EventDispatcher();
   }
 
-  /**
-   * Dispatch event
-   *
-   * @return void
-   */
   dispatch() {
     if (!this.isValidCallbackRequest() && !this.isVerifyTokenRequest()) return;
 
@@ -37,21 +21,14 @@ class WebhookRequestHandler {
     this.dispatcher.dispatch(event, event.getName());
   }
 
-  /**
-   * @param {EventSubscriberInterface} subscriber
-   * @return void
-   */
   addSubscriber(subscriber) {
     this.dispatcher.addSubscriber(subscriber);
   }
 
-  /**
-   * @return {boolean}
-   */
   isVerifyTokenRequest() {
-    if (this.request.method !== 'GET') return false;
+    if (this.request.getMethod() !== "GET") return false;
 
-    const params = this.request.query;
+    const params = this.request.getQueryParams();
     if (!params['hub_verify_token'] || !params['hub_mode'] || !params['hub_challenge']) {
       return false;
     }
@@ -59,18 +36,10 @@ class WebhookRequestHandler {
     return true;
   }
 
-  /**
-   * @return {Object}
-   */
   getParams() {
-    return this.request.query;
+    return this.request.getQueryParams();
   }
 
-  /**
-   * Check if the request is a valid webhook request
-   *
-   * @return {boolean}
-   */
   isValidCallbackRequest() {
     const decoded = this.getDecodedBody();
 
@@ -81,15 +50,13 @@ class WebhookRequestHandler {
   }
 
   getDecodedBody() {
-    const body = Buffer.from(this.request.body).toString('utf-8');
+    const body = this.getRequest().getBody().toString();
     return JSON.parse(body);
   }
 
-  /**
-   * @return {ServerRequest}
-   */
   getRequest() {
     return this.request;
   }
 }
 
+module.exports = WebhookRequestHandler;
