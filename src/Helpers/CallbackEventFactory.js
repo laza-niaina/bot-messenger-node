@@ -1,10 +1,15 @@
-import { MessageEvent, PostbackEvent, VerifyEvent } from './CallbackEvents'; // Assurez-vous d'ajuster le chemin selon votre structure de dossier
-import { Message, Postback, Verify } from './CallbackModels'; // Assurez-vous d'ajuster le chemin selon votre structure de dossier
+const VerifyEvent = require('./VerifyEvent');
+const MessageEvent = require('./MessageEvent');
+const PostbackEvent = require('./PostbackEvent');
+const Message = require('./Message');
+const Postback = require('./Postback')
+const Verify = require('./Verify');
 
 class CallbackEventFactory {
+
   /**
    * @param {Object} data
-   * @return {CallbackEvent}
+   * @returns {CallbackEvent}
    */
   static create(data) {
     const entry = data.entry[0];
@@ -20,7 +25,7 @@ class CallbackEventFactory {
 
   /**
    * @param {Object} data
-   * @return {VerifyEvent}
+   * @returns {VerifyEvent}
    */
   static createForVerify(data) {
     const event = new VerifyEvent(Verify.create(data));
@@ -28,4 +33,4 @@ class CallbackEventFactory {
   }
 }
 
-export default CallbackEventFactory;
+module.exports = CallbackEventFactory;
