@@ -1,18 +1,14 @@
-const { RequestOptions } = require('gaxios');
-const Attachment = require('./Model/Attachment');
-const Message = require('./Model/Message');
-const { MessagingType, NotificationType } = require('./Types');
+// JavaScript code for Node.js
+
+const RequestOptions = require('guzzlehttp').RequestOptions;
 const Client = require('./Client');
+const Attachment = require('./Attachment');
+const MessagingType = require('./MessagingType');
+const NotificationType = require('./NotificationType');
+const Personas = require('./Personas');
 
 class RequestOptionsFactory {
 
-  /**
-   * Create options for typing
-   *
-   * @param {string} recipient
-   * @param {string} actionType
-   * @returns {Object}
-   */
   static createForTyping(recipient, actionType) {
     const options = {};
     const data = {
@@ -25,16 +21,6 @@ class RequestOptionsFactory {
     return options;
   }
 
-  /**
-   * Create options for message
-   *
-   * @param {string} recipient
-   * @param {Message} message
-   * @param {string} personasId
-   * @param {string} messagingType
-   * @param {string} notificationType
-   * @returns {Object}
-   */
   static createForMessage(recipient, message, personasId = null, messagingType = MessagingType.RESPONSE, notificationType = NotificationType.REGULAR) {
     const options = {};
     const data = {
@@ -71,10 +57,13 @@ class RequestOptionsFactory {
         { name: 'recipient', contents: JSON.stringify(data.recipient) },
         { name: 'message', contents: JSON.stringify(data.message) },
         { name: 'notification_type', contents: data.notification_type },
-        { name: 'filedata', contents: message.getFileStream(), headers: { 'Content-Type': mimeType } },
-        { name: 'persona_id', contents: personasId },
+        {
+          name: 'filedata',
+          contents: message.getFileStream(),
+          headers: { 'Content-Type': mimeType },
+        },
+        { name: 'persona_id', contents: personasId }
       ];
-
       options[RequestOptions.TIMEOUT] = Client.DEFAULT_FILE_UPLOAD_TIMEOUT;
       return options;
     }
@@ -83,12 +72,6 @@ class RequestOptionsFactory {
     return options;
   }
 
-  /**
-   * Create options for deleting properties
-   *
-   * @param {string} props
-   * @returns {Object}
-   */
   static createForDeleteProperties(props) {
     const options = {};
     options[RequestOptions.JSON] = {
