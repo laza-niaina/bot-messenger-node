@@ -115,8 +115,6 @@ messenger.sendMessage('<recipient>', message);
 const { Messenger, Message, Button, PhoneNumber, Postback, WebUrl } = require('bot-messenger-node');
 
 const messenger = Messenger.create('<PAGE_TOKEN>');
-
-// Check the namespace carefully  Fakell\BotMessenger\Model\Attachment\Template\Button\Button
 const button = new Button("What can I do to help?",
     [
         new Postback("Get Order Status", "YOUR_PAYLOaD"),
@@ -203,7 +201,7 @@ const messenger = Messenger.create('<PAGE_TOKEN>');
 // Local file
 const image = new Image('./image.png');
 // or remoteFile
-const image = new Image('https://image.com/fakell.png');
+const image = new Image('https://image.com/laza.png');
 
 // I don't write in the following code the file remote from others because Image, File, Audio, Video supports a remote file
 // Note that it is better to use a local file
@@ -237,7 +235,7 @@ const messenger = Messenger.create('<PAGE_TOKEN>');
 
 // Add personas
 
-const personas = new Personas('Fakell', 'https://image.com/profile.png');
+const personas = new Personas('Laza', 'https://image.com/profile.png');
 messenger.addPersonas(personas).then(personasArray => {
   // if successful, personasArray will contain the personas's id
   console.log(personasArray);
