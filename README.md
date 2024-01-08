@@ -94,4 +94,4 @@ sendApi.send_file('<file_url>', '<recipient_id>')
 ```
 
 ## To do
-- Securing requests
+- Clarify this docs
