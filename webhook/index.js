@@ -205,4 +205,4 @@ function addWebhookEndpoint (endpoint, app) {
   return;
 }
 
-module.exports = Webhook;
+module.exports = {Webhook};
