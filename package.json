@@ -1,6 +1,6 @@
 {
   "name": "bot-messenger-node",
-  "version": "1.0.6-beta",
+  "version": "1.0.6",
   "description": "A Node.js toolkit facilitating the seamless incorporation and effective deployment of the Messenger API in crafting responsive chatbots.",
   "main": "index.js",
   "scripts": {
