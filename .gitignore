@@ -6,8 +6,11 @@ yarn-debug.log*
 yarn-error.log*
 lerna-debug.log*
 .pnpm-debug.log*
+<<<<<<< HEAD
 .replit 
 .nix
+=======
+>>>>>>> 239a206bbf7bdc660aeb816be65747d4d7f321de
 
 node_modules
 
