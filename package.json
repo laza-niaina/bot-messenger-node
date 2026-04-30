@@ -1,0 +1,48 @@
+{
+  "name": "bot-messenger-node",
+  "version": "2.0.0",
+  "description": "Un toolkit complet et moderne pour interagir avec la plateforme Messenger de Facebook. Simple, puissant et toujours à jour avec la dernière version de l'API Graph.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/laza-niaina/bot-messenger-node.git"
+  },
+  "keywords": [
+    "bot-messenger",
+    "messenger-api",
+    "facebook",
+    "messenger",
+    "chatbot",
+    "graph-api",
+    "webhook",
+    "bot"
+  ],
+  "author": "Laza Niaina <lazaniaina13@gmail.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/laza-niaina/bot-messenger-node/issues"
+  },
+  "homepage": "https://github.com/laza-niaina/bot-messenger-node#readme",
+  "dependencies": {
+    "axios": "^1.6.0",
+    "fs": "^0.0.1-security",
+    "assert": "^2.0.0",
+    "form-data": "^4.0.0",
+    "body-parser": "^1.20.2",
+    "express": "^4.18.2"
+  },
+  "engines": {
+    "node": ">=18.0.0"
+  },
+  "files": [
+    "index.js",
+    "lib/",
+    "webhook/"
+  ],
+  "bugs": {
+    "url": "https://github.com/laza-niaina/bot-messenger-node/issues"
+  }
+}
