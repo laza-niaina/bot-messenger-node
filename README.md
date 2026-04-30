@@ -1,5 +1,4 @@
 # bot-messenger-node
-<<<<<<< HEAD
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 [![npm version](https://img.shields.io/npm/v/bot-messenger-node.svg?style=flat)](https://www.npmjs.com/package/bot-messenger-node)
@@ -21,48 +20,10 @@ Un toolkit complet et moderne pour interagir avec la plateforme Messenger de Fac
 
 ### Via npm
 
-=======
-[![npm version](https://img.shields.io/npm/v/bot-messenger-node.svg?style=flat)](https://www.npmjs.com/package/bot-messenger-node)
-
-[![NPM
-downloads](https://img.shields.io/npm/dm/bot-messenger-node.svg?style=flat)](https://www.npmjs.com/package/bot-messenger-node)
-
-Node Wrapper to various APIs from [Facebook Messenger Platform](https://developers.facebook.com/docs/messenger-platform).
-
-
-## Features
-
-### Send API (v18.0)
- - Send text messages
- - Send attachments from a remote file (image, audio, video, file)
- - Send attachments from a local file (image, audio, video, file)
- - Send templates (generic messages)
- - Send quick replies
- - Send buttons
-### Profile API (v18.0)
-- Set welcome screen
-- Set persistent menu
-### Attachment Upload API (v16.0)
-- Upload attachments from a remote file (image, audio, video, file)
-- Upload attachments from a local file (image, audio video, file)
-### Reusable components
-Various components used when sending messages in Facebook Messenger are wrapped into Python objects to make them reusable and easy to use.
-- **Elements:** used to contains various Element objects
-- **Element:** a card-like component that holds various other components
-- **Buttons:** used to contains various Button objects
-- **Button:** button used in various other components, can also be used alone
-- **QuickReplies:** used to contains various QuickReply objects
-- **QuickReply:** used when sending messages accompanied with quick replies
-- **PersistentMenu:** used when setting up persistent menu
-
-## How to install
-### From Npm
->>>>>>> 239a206bbf7bdc660aeb816be65747d4d7f321de
 ```bash
 npm install bot-messenger-node
 ```
 
-<<<<<<< HEAD
 ### Via yarn
 
 ```bash
@@ -76,6 +37,7 @@ yarn add bot-messenger-node
 - Un Page Access Token valide
 
 **Comment obtenir un Page Access Token :**
+
 1. Allez sur [Facebook Developers](https://developers.facebook.com/)
 2. Créez une application
 3. Ajoutez le produit "Messenger"
@@ -110,25 +72,29 @@ sendApi.send_text(recipientId, 'Bonjour ! Bienvenue sur notre service.');
 Envoi de messages dans toutes leurs formes :
 
 **Messages textuels**
+
 - Texte simple
 - Textes longs avec formattage
 
 **Médias et fichiers**
+
 - Images (depuis URL ou fichier local)
 - Vidéos
 - Fichiers audio
 - Documents PDF et autres fichiers
 
 **Templates interactifs**
+
 - Messages génériques avec cartes
 - Templates avec boutons
 - Réponses rapides (Quick Replies)
 - Combo messages + boutons + quick replies
 
 **Actions**
+
 - Indicateur "écrit..." (typing)
 - Marquer comme lu (seen)
-- Notification push régulateurs
+- Notification push régulées
 
 ### Profile API (v21.0)
 
@@ -165,7 +131,7 @@ const webhook = new Webhook({
 // Écouter les messages reçus
 webhook.on('messages', (event_type, sender_info, webhook_event) => {
   console.log('Message reçu :', webhook_event.message);
-  
+
   // Répondre au message
   if (webhook_event.message && webhook_event.message.text) {
     const senderId = sender_info.value;
@@ -179,7 +145,7 @@ webhook.on('messaging_postbacks', (event_type, sender_info, webhook_event) => {
   console.log('Postback reçu :', webhook_event.postback);
   const senderId = sender_info.value;
   const payload = webhook_event.postback.payload;
-  
+
   switch(payload) {
     case 'MENU_PRINCIPAL':
       sendApi.send_text(senderId, 'Voici notre menu principal...');
@@ -200,36 +166,10 @@ Les éléments sont les blocs de construction des messages génériques (cartes)
 const { SendApi, Elements, Element, Buttons, Button, POSTBACK, WEB_URL } = require('bot-messenger-node');
 
 const sendApi = new SendApi(PAGE_ACCESS_TOKEN);
-=======
-## Usage
-### Send API
-```javascript
-const { SendApi } = require('bot-messenger-node');
-
-const sendApi = new SendApi('<page_access_token>');
-const message = '<message>';
-const recipientId = '<recipient_id>';
-
-sendApi.send_text(message, recipientId)
-
-```
-**Note**: From Facebook regarding User IDs
-
-> These ids are page-scoped. These ids differ from those returned from Facebook Login apps which are app-scoped. You must use ids retrieved from a Messenger integration for this page in order to function properly.
-
-##### Sending a generic template message:
-
-> [Generic Template Messages](https://developers.facebook.com/docs/messenger-platform/implementation#receive_message) allows you to add cool elements like images, text all in a single bubble.
-```javascript
-const { SendApi, Elements, Element, Buttons, Button, POSTBACK } = require('bot-messenger-node');
-
-const sendApi = new SendApi('<page_access_token>');
->>>>>>> 239a206bbf7bdc660aeb816be65747d4d7f321de
 
 const elements = new Elements();
 const buttons = new Buttons();
 
-<<<<<<< HEAD
 // Ajouter des boutons
 const button1 = new Button(POSTBACK, "Menu");
 button1.set_payload('MENU_ACTION');
@@ -265,6 +205,7 @@ const sendApi = new SendApi(PAGE_ACCESS_TOKEN);
 
 const quickReplies = new QuickReplies();
 
+const qr1 = new QuickReply('Choix A', 'CHOIX_A');
 qr1.set_payload('CHOIX_A');
 quickReplies.add_quick_reply(qr1.get_content());
 
@@ -345,9 +286,9 @@ webhook.on('messages', (event, sender, event_data) => {
   if (event_data.message && event_data.message.text) {
     const text = event_data.message.text.toLowerCase();
     const senderId = sender.value;
-    
+
     if (text.includes('bonjour') || text.includes('hello')) {
-      sendApi.send_text(senderId, 'Bonjour !comment puis-je vous aider ?');
+      sendApi.send_text(senderId, 'Bonjour ! Comment puis-je vous aider ?');
     } else if (text.includes('heure')) {
       const now = new Date();
       sendApi.send_text(senderId, `Il est ${now.getHours()}h${now.getMinutes()}`);
@@ -366,7 +307,7 @@ const { SendApi, Elements, Element, Buttons, Button, POSTBACK } = require('bot-m
 async function sendProductCard(recipientId) {
   const sendApi = new SendApi(PAGE_ACCESS_TOKEN);
   const elements = new Elements();
-  
+
   const products = [
     {
       name: 'Premium Plan',
@@ -381,12 +322,12 @@ async function sendProductCard(recipientId) {
       price: '$49/mois'
     }
   ];
-  
+
   products.forEach(product => {
     const buttons = new Buttons();
     buttons.add_button(new Button(POSTBACK, "Choisir").get_content());
     buttons.add_button(new Button(POSTBACK, "En savoir plus").get_content());
-    
+
     const element = new Element(
       product.name,
       `${product.subtitle} - ${product.price}`,
@@ -395,7 +336,7 @@ async function sendProductCard(recipientId) {
     );
     elements.add_element(element.get_content());
   });
-  
+
   sendApi.send_generic(elements.get_content(), recipientId);
 }
 ```
@@ -407,20 +348,20 @@ const { ProfileApi, PersistentMenu, Button, POSTBACK } = require('bot-messenger-
 
 async function setupBot() {
   const profileApi = new ProfileApi(PAGE_ACCESS_TOKEN);
-  
+
   // Configurer l'écran de bienvenue
   await profileApi.setWelcomeScreen('GET_STARTED_PAYLOAD', [
     { locale: 'default', text: 'Bienvenue {{user_full_name}} !' },
     { locale: 'fr_FR', text: 'Bonjour {{user_full_name}} !' }
   ]);
-  
+
   // Configurer le menu persistant
   const menu = new PersistentMenu([
     new Button(POSTBACK, "📞 Contact").get_content(),
     new Button(POSTBACK, "❓ Aide").get_content(),
     new Button(POSTBACK, "🏠 Accueil").get_content()
   ]);
-  
+
   await profileApi.setPersistentMenu(menu.get_content());
 }
 ```
@@ -514,37 +455,3 @@ MIT License - voir le fichier [LICENSE](LICENSE) pour plus de détails.
 
 **Auteur** : Laza Niaina  
 **Support** : [GitHub Issues](https://github.com/laza-niaina/bot-messenger-node/issues)
-
-Documentation basée sur [Facebook Messenger Platform](https://developers.facebook.com/docs/messenger-platform).
-=======
-const button = new Button(POSTBACK, "My button");
-buttons.add_button(button.getContent());
-
-const element = new Element("My element", "The element's subtitle", '<image_url>', buttons.get_content());
-elements.add_element(element.getContent());
-
-sendApi.send_generic(elements.getContent(), '<recipient_id>')
-
-```
-##### Sending remote (from URL) image/audio/video/file:
-```javascript
-const SendApi = require('bot-messenger-node');
-
-const sendApi = new SendApi('<page_access_token>');
-
-// To send an image
-sendApi.send_image('<image_url>', '<recipient_id>')
-
-// To send an audio
-sendApi.send_audio('<audio_url>', '<recipient_id>')
-
-// To send a video
-sendApi.send_video('<video_url>', '<recipient_id>')
-// To send a file
-sendApi.send_file('<file_url>', '<recipient_id>')
-
-```
-
-## To do
-- Clarify this docs
->>>>>>> 239a206bbf7bdc660aeb816be65747d4d7f321de
