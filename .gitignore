@@ -6,11 +6,8 @@ yarn-debug.log*
 yarn-error.log*
 lerna-debug.log*
 .pnpm-debug.log*
-<<<<<<< HEAD
-.replit 
+.replit
 .nix
-=======
->>>>>>> 239a206bbf7bdc660aeb816be65747d4d7f321de
 
 node_modules
 
@@ -100,9 +97,6 @@ dist
 
 # Gatsby files
 .cache/
-# Comment in the public line in if your project uses Gatsby and not Next.js
-# https://nextjs.org/blog/next-9-1#public-directory-support
-# public
 
 # vuepress build output
 .vuepress/dist
@@ -135,4 +129,3 @@ dist
 .yarn/build-state.yml
 .yarn/install-state.gz
 .pnp.*
-.git
